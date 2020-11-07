@@ -8,10 +8,10 @@ import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
 
 fun main() {
-    embeddedServer(Netty, 8000) {
+    embeddedServer(Netty, 8001) {
         routing {
             httpBotRouting(
-                "/actions" to ActionsFulfillment.dialogflow(templateBot)
+                "/" to ActionsFulfillment.dialogflow(templateBot)
             )
         }
     }.start(wait = true)
