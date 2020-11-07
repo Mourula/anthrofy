@@ -1,16 +1,19 @@
 package com.justai.jaicf.template.scenario
 
 import com.justai.jaicf.activator.caila.caila
+import com.justai.jaicf.channel.googleactions.actions
+import com.justai.jaicf.channel.googleactions.dialogflow.DialogflowIntent
+import com.justai.jaicf.channel.googleactions.dialogflow.actionsDialogflow
 import com.justai.jaicf.model.scenario.Scenario
 
 object MainScenario : Scenario() {
 
     init {
-        state("start") {
+        state("hello") {
             activators {
-                regex("/start")
-                intent("Hello")
+                intent(DialogflowIntent.WELCOME)
             }
+
             action {
                 reactions.run {
                     image("https://media.giphy.com/media/ICOgUNjpvO0PC/source.gif")
